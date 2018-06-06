@@ -1,12 +1,22 @@
 package br.edu.unichristus.mvcprojetos.controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import br.edu.unichristus.mvcprojetos.dados.entidades.Projeto;
+import br.edu.unichristus.mvcprojetos.dados.services.ProjetosService;
 
 @Controller
 @RequestMapping("/projeto")
 public class ProjetosController {
+	
+	@Autowired
+	private ProjetosService servico;
 
 	@RequestMapping(value="/adicionar", method=RequestMethod.GET)
 	// Exibe o formulário para adicionar um projeto
@@ -32,6 +42,13 @@ public class ProjetosController {
 	public String salvarProjetoMultiplosAnosEspecial(){
 		System.out.println("invocando salvar projeto múltiplos anos e especial");
 		return "adicionarProjeto";
+	}
+	
+	@RequestMapping(value = "/buscar")
+	public String buscarTodos(Model modelo) {
+		List<Projeto> projetos = this.servico.buscarTodos();
+		modelo.addAttribute("projetos", projetos);
+		return "projetos";
 	}
 
 
