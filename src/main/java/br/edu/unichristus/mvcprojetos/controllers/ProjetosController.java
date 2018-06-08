@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -50,6 +51,13 @@ public class ProjetosController {
 		modelo.addAttribute("projetos", projetos);
 		return "projetos";
 	}
+	
+	@RequestMapping(value="/{idProjeto}")
+	public String buscarProjeto(Model modelo, @PathVariable Long idProjeto) {
+		modelo.addAttribute("projeto", this.servico.buscarProjeto(idProjeto));
+		return "projeto";
+	}
+
 
 
 

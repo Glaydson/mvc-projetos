@@ -21,7 +21,10 @@
 				<th>Nome</th><th>Patrocinador</th><th>Descrição</th>
 			</tr>
 			<tr th:each="projeto : ${projetos}">
-				<td th:text="${projeto.nome}">Nome</td>
+				<td><a href="projeto.html"
+					th:href="@{|/projeto/${projeto.idProjeto}|}"
+					th:text="|${projeto.nome}|">Nome</a>
+				</td>
 				<td th:text="${projeto.patrocinador}">Patrocinador</td>
 				<td th:text="${projeto.descricao}">Descrição</td>
 			</tr>	

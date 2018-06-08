@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Sistema de Projetos</title>
+<th:block th:include="fragments/cabecalho :: head"></th:block>
+</head>
+<body>
+	<th:block th:include="fragments/menu :: menu"></th:block>
+	<div class="container">
+		<div class="row">
+			<h1>Novo Recurso</h1>
+		</div>
+		<form action="#" th:action="@{/recurso/adicionar}" method="POST"
+			class="col-md-8 col-md-offset-2">
+			<div class="row">
+				<div class="form-group">
+					<label for="nomeRecurso">Nome</label> 
+					<input type="text"
+						id="nomeRecurso" class="form-control" name="nome" />
+				</div>
+				<div class="form-group">
+					<label for="tipoRecurso">Tipo</label> 
+					<select id="tipoRecurso"
+						name="tipo" class="selectpicker">
+						<option></option>
+						<option value="material">Material</option>
+						<option value="outros">Outros</option>
+						<option value="staff">Staff</option>
+						<option value="tech">Equipamento Técnico</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="custo">Custo</label> 
+					<input id="custo" type="text"
+						class="form-control" name="custo" />
+				</div>
+				<div class="form-group">
+					<label for="unidade">Unidade de Medida</label> 
+					<input
+						id="unidade" type=" text" class="form-control"
+						name="unidadeMedida" />
+				</div>
+				<button type="submit" class="btn btn-default">Adicionar</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

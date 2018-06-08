@@ -17,4 +17,8 @@ public class ProjetosService {
 		return this.repo.findAll();
 	}
 
+	public Projeto buscarProjeto(Long idProjeto) {
+		return this.repo.getOne(idProjeto);
+	}
+
 }
